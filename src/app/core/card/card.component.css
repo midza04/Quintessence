@@ -1,0 +1,111 @@
+.cardBackground{
+  height: auto;
+}
+
+.cardContainer{
+  background-color: white;
+  min-height: 800px;
+  align-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-width: 1440px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardHeader {
+  vertical-align: middle;
+  background-color: #F9F9F9;
+  padding: 20px 30px;
+}
+
+.cardHeader div {
+  display:inline-block;
+  line-height: 35px;
+  height: 35px;
+}
+
+.cardHeaderIcon {
+  float:left;
+}
+
+.cardHeaderIcon img {
+  height:35px;
+}
+
+.cardTitle{
+  display: inline-block;
+  font-family: Roboto-Bold;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  color: #333333;
+  margin-left:15px;
+}
+
+.cardClose{
+  float: right;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.cardClose a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.cardContent{
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 50px;
+  padding-top:30px;
+}
+
+.cardActions {
+  float:right;
+  margin-right: 20px;
+}
+
+.isLoading{
+  display: block;
+  text-align: center;
+}
+
+.loadingText{
+  font-weight: 500;
+  align-items: center;
+}
+
+.LoadingSign {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+}
+
+#loadingContent{
+  margin: 250px 0px;
+}
+
+.LoadingSign:after {
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 4px solid var(--BsolveDarkGreen);;
+  border-color: var(--BsolveDarkGreen) transparent var(--BsolveDarkGreen) transparent ;
+  animation: cardLoading 1.2s linear infinite;
+}
+
+@keyframes cardLoading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

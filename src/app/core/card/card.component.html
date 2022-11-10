@@ -1,0 +1,29 @@
+<div class="cardBackground">
+  <div class="cardContainer">
+    <div class="cardHeader">
+<!--      <div class="cardHeaderIcon" *ngIf="cardIcon != ''">-->
+<!--        <img src="{{ cardIcon }}" />-->
+<!--      </div>-->
+      <div class="cardTitle">{{ cardTitle }}</div>
+      <div class="cardClose" *ngIf="showClose">
+        <a (click)="close()">
+          &times;
+        </a>
+      </div>
+    </div>
+    <div class="cardActions" *ngFor="let action of actions">
+      <button (click)="action.action()">{{ action.title }}</button>
+    </div>
+    <div class="isLoading" *ngIf="loading">
+      <div id="loadingContent">
+        <div class="LoadingSign"></div>
+        <div class="loadingText">
+          {{ loadingText }}
+        </div>
+      </div>
+    </div>
+    <div class="cardContent" *ngIf="!loading">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

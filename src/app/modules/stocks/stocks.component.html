@@ -1,0 +1,80 @@
+<app-card
+  [card-title]="'Stocks Table'"
+  [isLoading]="false"
+  [card-icon]="'./assets/img/icons/icon-connect.svg'"
+  [card-close]="'/Home'"
+>
+  <form>
+    <div class="mb-3 row">
+
+      <div class="col-xs-3 col-sm-auto">
+        <input id="table-filtering-search"
+               [(ngModel)]="searchTerm"
+               (input)="search($event.target)"
+               placeholder="Search here..."
+               class="form-control" type="text"  />
+      </div>
+    </div>
+  </form>
+  <table *ngIf="stocks" class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Industry</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Currency Code</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let emp of stocks; index as i">
+      <th scope="row">
+        <button (click)="getStocksValue(emp)" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+          <mat-icon>check</mat-icon>
+        </button>
+      </th>
+      <td>
+        {{ emp.stock }}
+      </td>
+      <td>{{ emp.industry  }}</td>
+      <td>{{ emp.sector  }}</td>
+      <td>{{ emp.currency_code  }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [maxSize]="5"
+      [boundaryLinks]="true"
+      [pageSize]="pageSize"
+    >
+    </ngb-pagination>
+
+
+
+
+  </div>
+
+  <table *ngIf="stockDetail" class="table table-striped">
+    <thead>
+    <tr>
+
+
+      <th scope="col">Value</th>
+      <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let emp of stockDetail; index as i">
+
+      <td>{{ emp.value  }}</td>
+      <td>{{ emp.date  }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+</app-card>
+
